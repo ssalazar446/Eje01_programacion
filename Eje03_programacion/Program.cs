@@ -1,12 +1,9 @@
-﻿/*
- * Created by SharpDevelop.
- * User: SENA
- * Date: 16/03/2022
- * Time: 4:12 p. m.
- * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
- */
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 
 namespace Eje03_programacion
 {
@@ -45,29 +42,29 @@ namespace Eje03_programacion
 
 			//8. Hacer un algoritmo que lea el nombre de una persona y número de horas que estudia en la semana.
 			string nombre;
-			int numeroHoras;
+			int horasSemana;
 
 			Console.WriteLine("Ingrese el nombre");
 			nombre = Console.ReadLine();
 			Console.WriteLine("Ingrese el numero de horas que estudia a la semana");
-			numeroHoras = int.Parse(Console.ReadLine());
+			horasSemana = int.Parse(Console.ReadLine());
 
-			Console.WriteLine("Su nombre es {0} y el numero de horas que estudia a la semana es {1}", nombre, numeroHoras);
+			Console.WriteLine("Su nombre es {0} y el numero de horas que estudia a la semana es {1}", nombre, horasSemana);
 
 
 			//9.Hacer un algoritmo que lea el nombre de un estudiante, la cantidad de materias perdidas y la cantidad
 			//de materias ganadas.
-			string nombre;
+			string nombreEstudiante;
 			int materiasPerdidas, materiasGanadas;
 
 			Console.WriteLine("Ingrese el nombre");
-			nombre = Console.ReadLine();
+			nombreEstudiante = Console.ReadLine();
 			Console.WriteLine("Ingrese el numero de materias perdidas");
 			materiasPerdidas = int.Parse(Console.ReadLine());
 			Console.WriteLine("Ingrese el numero de materias ganadas");
 			materiasGanadas = int.Parse(Console.ReadLine());
 
-			Console.WriteLine("Su nombre es {0}  el numero de materias perdidas es {1} y el numero de materias ganadas es {2}", nombre, materiasPerdidas, materiasGanadas);
+			Console.WriteLine("Su nombre es {0}  el numero de materias perdidas es {1} y el numero de materias ganadas es {2}", nombreEstudiante, materiasPerdidas, materiasGanadas);
 
 			//10. Hacer un algoritmo que lea el alto y el ancho de un rectángulo y muestre su área y su perímetro.
 
@@ -84,13 +81,13 @@ namespace Eje03_programacion
 
 			//11. Hacer un algoritmo que lea dos números enteros A y B y muestre su diferencia.
 
-			double a, b, diferencia;
+			double numeroA, numeroB, diferencia;
 
 			Console.WriteLine("Ingrese el valor de A");
-			a = double.Parse(Console.ReadLine());
+			numeroA = double.Parse(Console.ReadLine());
 			Console.WriteLine("Ingrese el valor de B");
-			b = double.Parse(Console.ReadLine());
-			diferencia = a - b;
+			numeroB = double.Parse(Console.ReadLine());
+			diferencia = numeroA - numeroB;
 
 			Console.WriteLine("La diferencia es: {0}", diferencia);
 
@@ -98,26 +95,26 @@ namespace Eje03_programacion
 			//horas que trabajó. Se debe mostrar el nombre y el pago de la persona.
 			int valorHoras, numeroHoras;
 			double pago;
-			string nombre;
+			string nombrePersona;
 
 			Console.WriteLine("Ingrese el nombre");
-			nombre = Console.ReadLine();
+			nombrePersona = Console.ReadLine();
 			Console.WriteLine("Ingrese el valor de la hora");
 			valorHoras = int.Parse(Console.ReadLine());
 			Console.WriteLine("Ingrese la cantidad de la horas trabajadas");
 			numeroHoras = int.Parse(Console.ReadLine());
 			pago = valorHoras * numeroHoras;
 
-			Console.WriteLine("Su nombre es: {0} y su pago es {1}", nombre, pago);
+			Console.WriteLine("Su nombre es: {0} y su pago es {1}", nombrePersona, pago);
 
 			//13. Pedir el radio de un círculo y calcular su área. A=PI*r^2.
-			double radioCirculo, area;
+			double radioCirculo, areaCirculo;
 
 			Console.WriteLine("Ingrese el radio del circulo");
 			radioCirculo = double.Parse(Console.ReadLine());
-			area = 2 * Math.PI * radioCirculo;
+			areaCirculo = 2 * Math.PI * radioCirculo;
 
-			Console.WriteLine("El área del circulo es: {0}", area);
+			Console.WriteLine("El área del circulo es: {0}", areaCirculo);
 
 			//14. Pedir el radio de una circunferencia y calcular su longitud.
 			double radioCircunferencia, longitud;
@@ -130,26 +127,26 @@ namespace Eje03_programacion
 
 
 			//15. Pedir el lado de un cuadrado, mostrar su área y su perímetro.
-			double ladoCuadrado, area, perimetro;
+			double ladoCuadrado, areaCuadrado, perimetroCuadrado;
 
 			Console.WriteLine("Ingrese el lado de un cuadrado");
 			ladoCuadrado = double.Parse(Console.ReadLine());
-			area = ladoCuadrado * 2;
-			perimetro = ladoCuadrado * 4;
+			areaCuadrado = ladoCuadrado * 2;
+			perimetroCuadrado = ladoCuadrado * 4;
 
-			Console.WriteLine("El area del cuadrado es: {0} Y su perimetro es {1}", area, perimetro);
+			Console.WriteLine("El area del cuadrado es: {0} Y su perimetro es {1}", areaCuadrado, perimetroCuadrado);
 
 
 			//16. Calcular el área de un rectángulo de lados X e Y.
-			double area, ladoX, ladoY;
+			double areaRectangulo, ladoX, ladoY;
 
 			Console.WriteLine("Ingrese el valor de X del rectangulo");
 			ladoX = double.Parse(Console.ReadLine());
 			Console.WriteLine("Ingrese el valor de Y del rectangulo");
 			ladoY = double.Parse(Console.ReadLine());
-			area = ladoX * ladoY;
+			areaRectangulo = ladoX * ladoY;
 
-			Console.WriteLine("El area del rectangulo es: {0}", area);
+			Console.WriteLine("El area del rectangulo es: {0}", areaRectangulo);
 			Console.ReadKey(true);
 		}
 	}
