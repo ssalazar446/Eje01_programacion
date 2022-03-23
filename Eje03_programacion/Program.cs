@@ -148,6 +148,23 @@ namespace Eje03_programacion
 
 			Console.WriteLine("El area del rectangulo es: {0}", areaRectangulo);
 			Console.ReadKey(true);
+
+
+			//17. Pedir dos números y decir si son iguales o no.
+			double num1, num2;
+			Console.WriteLine("Digite numero 1");
+			num1 = double.Parse(Console.ReadLine());
+			Console.WriteLine("Digite numero 2");
+			num2 = double.Parse(Console.ReadLine());
+
+			if(num1 == num2)
+            {
+				Console.WriteLine("Los numeros son iguales");
+            }
+            else
+            {
+				Console.WriteLine("Los numeros no son iguales");
+            }
 		}
 	}
 }
