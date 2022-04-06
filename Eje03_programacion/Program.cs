@@ -112,7 +112,7 @@ namespace Eje03_programacion
 
 			Console.WriteLine("Ingrese el radio del circulo");
 			radioCirculo = double.Parse(Console.ReadLine());
-			areaCirculo = 2 * Math.PI * radioCirculo;
+			areaCirculo = Math.PI * Math.Pow(radioCirculo, 2);
 
 			Console.WriteLine("El área del circulo es: {0}", areaCirculo);
 
@@ -121,7 +121,7 @@ namespace Eje03_programacion
 
 			Console.WriteLine("Ingrese el radio de una circunferencia");
 			radioCircunferencia = double.Parse(Console.ReadLine());
-			longitud = 2 * Math.PI * radioCircunferencia;
+			longitud = Math.Pow(Math.PI, 2) * radioCircunferencia;
 
 			Console.WriteLine("La longitud de la circunferencia es: {0}", longitud);
 
@@ -185,7 +185,7 @@ namespace Eje03_programacion
 			number1 = double.Parse(Console.ReadLine());
 			Console.WriteLine("Digite numero 2");
 			number2 = double.Parse(Console.ReadLine());
-
+			
 			if(a % b == 0)
             {
 				Console.WriteLine("Es multiplo");
@@ -195,13 +195,13 @@ namespace Eje03_programacion
             }
 
 			//20. Pedir dos números y decir cuál es el mayor.
-			double number_1, number_2;
+			double numb1, numb2;
 			Console.WriteLine("Digite numero 1");
-			number1 = double.Parse(Console.ReadLine());
+			numb1 = double.Parse(Console.ReadLine());
 			Console.WriteLine("Digite numero 2");
-			number2 = double.Parse(Console.ReadLine());
+			numb2 = double.Parse(Console.ReadLine());
 			
-			if (number_1 > number_2)
+			if (numb1 > numb2)
             {
 				Console.WriteLine("El primer numero es mayor que el segundo");
             } else
@@ -280,16 +280,19 @@ namespace Eje03_programacion
 
 			//25. Pedir una nota de 0 a 5 y mostrarla de la forma: Insuficiente (0 ? 2,9), Suficiente (3 ? 4,5) y Bien (4,6? 5)
 			double nota;
-			Console.WriteLine("Digite numero 1");
+			Console.WriteLine("Digite una nota de 0 a 5");
 			nota = double.Parse(Console.ReadLine());
 
-			if(nota < 2.9)
+			
+			if(nota >= 0 && nota < 3)
             {
 				Console.WriteLine("Insuficiente");
-            } if(nota > 3 && nota < 4.5) 
+            }
+			else if(nota >= 3 && nota < 4.5) 
             {
 				Console.WriteLine("Suficiente");
-            } if(nota > 4.6 && nota < 5)
+            }
+			else if(nota >= 4.6 && nota <= 5)
             {
 				Console.WriteLine("Bien");
             }
@@ -300,9 +303,13 @@ namespace Eje03_programacion
 
 			//26. Pedir una nota numérica entera entre 0 y 10, y mostrar dicha nota de la forma: cero, uno, dos, tres...
 			double leer_numero;
-			Console.WriteLine("Digite numero 1");
-			leer_numero = double.Parse(Console.ReadLine());
-			if (leer_numero == 0)
+			Console.WriteLine("Digite un numero entre 0 a 10");
+			bool validacion = double.TryParse(Console.ReadLine(), out leer_numero);
+			if (validacion == false)
+			{
+				Console.WriteLine("Numero fuera de rango");
+			}
+			/*if (leer_numero == 0)
             {
 				Console.WriteLine("Cero");
             }
@@ -342,6 +349,48 @@ namespace Eje03_programacion
             {
 				Console.WriteLine("Diez");
             }
+            */
+			switch (leer_numero)
+            {
+				case 0:
+					Console.WriteLine("Cero");
+					break;
+				case 1:
+					Console.WriteLine("Uno");
+					break ;
+				case 2:
+					Console.WriteLine("Dos");
+					break;
+				case 3:
+					Console.WriteLine("Tres");
+					break;
+				case 4:
+					Console.WriteLine("Cuatro");
+					break;
+				case 5:
+					Console.WriteLine("Cinco");
+					break;
+				case 6:
+					Console.WriteLine("Seis");
+					break;
+				case 7:
+					Console.WriteLine("Siete");
+					break;
+				case 8:
+					Console.WriteLine("Ocho");
+					break;
+				case 9:
+					Console.WriteLine("Nueve");
+					break;
+				case 10:
+					Console.WriteLine("Diez");
+					break;
+				default:
+				Console.WriteLine("Nota incorrecta");
+					break;
+
+
+			}
 
 
 			//27. Pedir un número y decir si es par o impar.
@@ -360,29 +409,33 @@ namespace Eje03_programacion
 			//horas trabajadas es mayor que 40, éstas se consideran horas extra, y tienen un incremento de $10000
 			//(diez mil) sobre el valor de la hora. Calcular y mostrar el salario (pago) del trabajador. Nota: leer horas
 			//trabajadas y valor de la hora.
-			int cantidadHoras, valor_horas, horas_extra;
-			double pago_total, pago_extra;
-		
+			
+			double salario, horas_extras, valor_horas, cantidadHoras;
+
+
 
 			Console.WriteLine("Ingrese el valor de la hora");
-			valor_horas = int.Parse(Console.ReadLine());
-			Console.WriteLine("Ingrese la cantidad de la horas trabajadas");
-			cantidadHoras = int.Parse(Console.ReadLine());
-			pago_total = valor_horas * cantidadHoras;
+			valor_horas = double.Parse(Console.ReadLine());
 
-			if(cantidadHoras < 40)
+			Console.WriteLine("Ingrese la cantidad de la horas trabajadas");
+			bool validacionh = double.TryParse(Console.ReadLine(), out cantidadHoras);
+			salario = cantidadHoras * valor_horas;
+			
+
+			if(cantidadHoras > 40)
             {
-				
-				Console.WriteLine("Su pago es: ",  pago_total);
-				
-            }
-			if (cantidadHoras > 40)
-            {
-				horas_extra = valor_horas ++ 10000;
-				pago_extra = valor_horas * cantidadHoras;
-				Console.WriteLine("Su pago es: ",  pago_extra);
-				
-            }
+
+				horas_extras = cantidadHoras - 40;
+				salario = salario + horas_extras * 10000;
+				Console.WriteLine("Tiene horas extras: " + horas_extras);
+
+			}
+			Console.WriteLine("El salario es: " + salario);
+		
+
+			//29. Dado un monto, calcular el descuento considerando que por encima de 100 el descuento es del 10%
+			//y por debajo de 100, el descuento es del 2 %.
+			//30.Leer dos números y calcular su división, teniendo en cuenta que el denominador no debe ser 0(cero)
 
 
 		}
